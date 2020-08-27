@@ -1,6 +1,7 @@
 package guru.springframework.spring5webapp.domain;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 // POJO
 
@@ -17,15 +18,15 @@ public class Book {
     @ManyToMany   // we'll have a table for book and author in our db, so we use a join table
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
         inverseJoinColumns = @JoinColumn(name ="author_id")) // this holds the relationship in the author and book table
-    private Set<Author> authors;
+    private Set<Author> authors = new HashSet<>();
 
     public Book() {
     }
 
-    public Book(String title, String isbn, Set<Author> authors) {
+    public Book(String title, String isbn /*,Set<Author> authors*/) {
         this.title = title;
         this.isbn = isbn;
-        this.authors = authors;
+        //this.authors = authors;
     }
 
     public Long getId() {
@@ -52,7 +53,7 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public Set<Author> getAuthors() {
+   public Set<Author> getAuthors() {
         return authors;
     }
 
