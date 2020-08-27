@@ -15,6 +15,9 @@ public class Book {
     private String title;
     private String isbn;
 
+    @ManyToOne //Many publisher going to one entitiy (book)
+    private Publisher publisher;
+
     @ManyToMany   // we'll have a table for book and author in our db, so we use a join table
     @JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"),
         inverseJoinColumns = @JoinColumn(name ="author_id")) // this holds the relationship in the author and book table
@@ -27,6 +30,14 @@ public class Book {
         this.title = title;
         this.isbn = isbn;
         //this.authors = authors;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
     }
 
     public Long getId() {
