@@ -24,19 +24,19 @@
 <div style="text-align: center;">
     <h1>Author List</h1>
 
-<table align="center">
-    <tr>
-        <th>ID</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-    </tr>
-    <tr th:each="author : ${authors}">
-        <td th:text="${author.id}">123</td>
-        <td th:text="${author.firstName}">Joe</td>
-        <td th:text="${author.lastName}">Smith</td>
-    </tr>
+    <table align="center">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        <tr th:each="author : ${authors}">
+            <td th:text="${author.id}">123</td>
+            <td th:text="${author.firstName}">Joe</td>
+            <td th:text="${author.lastName}">Smith</td>
+        </tr>
 
-</table>
+    </table>
 </div>
 </body>
 </html>

@@ -25,7 +25,7 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println("Starated in Bootstrap");
+        System.out.println("Started in Bootstrap");
 
         Publisher publisher = new Publisher();
         publisher.setName("SFG Publishing");
@@ -59,6 +59,44 @@ public class BootStrapData implements CommandLineRunner {
 
         authorRepository.save(rod);
         bookRepository.save(noEJB);
+        publisherRepository.save(publisher);
+
+
+
+        Author rylee = new Author("Rylee", "Howard");
+        Book cats = new Book("Cats Play", "12345678");
+        rylee.getBooks().add(cats);
+        cats.getAuthors().add(rylee);
+
+        cats.setPublisher(publisher);
+        publisher.getBooks().add(cats);
+
+        authorRepository.save(rylee);
+        bookRepository.save(cats);
+        publisherRepository.save(publisher);
+
+        Author parker = new Author("Parker", "Howard");
+        Book cs = new Book("CS150", "12344444");
+        parker.getBooks().add(cs);
+        cats.getAuthors().add(parker);
+
+        cats.setPublisher(publisher);
+        publisher.getBooks().add(cs);
+
+        authorRepository.save(parker);
+        bookRepository.save(cs);
+        publisherRepository.save(publisher);
+
+        Author cameron = new Author("Cameron", "Howard");
+        Book riches = new Book("Managing Wealth", "48484848");
+        cameron.getBooks().add(riches);
+        riches.getAuthors().add(cameron);
+
+        riches.setPublisher(publisher);
+        publisher.getBooks().add(riches);
+
+        authorRepository.save(cameron);
+        bookRepository.save(riches);
         publisherRepository.save(publisher);
 
         System.out.println("Started in Bootstrap");
